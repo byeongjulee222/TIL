@@ -9,12 +9,12 @@ def hello():
     return render_template('index.html')    # 존재하지 않으니 우리가 만들어줘야 함
 
 
-
 @app.route('/ssafy')        # http://127.0.0.1:5000/ssafy를 주소로 하는 서버 개설
 def ssafy():
     return 'This is ssafy!'
 
-@app.route('/dday')         # datetimet 함수를 사용하려면 
+
+@app.route('/dday')         # datetime 함수를 사용하려면 
     					    # from datetime import datetime 해줘야함
 def dday():
     # 오늘 날짜
@@ -25,13 +25,14 @@ def dday():
     dday = endgame - today_time     # 날짜끼리 계산이 가능
     return f'{dday.days} 일 남았습니다.'
 
+
 @app.route('/html')
 def html():
     return '<h1>This is HTML TAG</h1>'      # <h1> </h1> 안에 넣으면 head1 으로 출력
 
 
 @app.route('/html_line')            
-def html_line():                    # ㅅ
+def html_line():                    
     return """
     <h1>여러 줄을 보내봅시다<h1>      
     <ul>
