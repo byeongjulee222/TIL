@@ -1,0 +1,34 @@
+{
+    'update_id': 391865736, 
+    'message': {
+        'message_id': 15, 
+        'from': {
+            'id': 792664558, 
+            'is_bot': False, 
+            'first_name': '병주', 
+            'last_name': '이', 
+            'language_code': 'ko'
+        }, 
+        'chat': {
+            'id': 792664558, 
+            'first_name': '병주', 
+            'last_name': '이', 
+            'type': 'private'
+        }, 
+        'date': 1562897722, 
+        'text': 'ㅇㄴ'
+    }
+}
+
+{
+    'message': {
+        '@type': 'response', 
+        '@service': 'naverservice.nmt.proxy', 
+        '@version': '1.0.0', 
+        'result': {
+            'srcLangType': 'ko', 
+            'tarLangType': 'en', 
+            'translatedText': 'apple'
+        }
+    }
+}
