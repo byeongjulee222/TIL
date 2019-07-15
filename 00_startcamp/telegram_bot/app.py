@@ -18,8 +18,8 @@ def hello():
 @app.route(f'/{token}', methods=['POST'])
 def telegram():
     # step 1. 데이터 구조 print 해보기
-    from_telegram = request.get_json()
-
+    from_telegram = request.get_json()  # 우리가 볼 수 있는 json 형식으로 변환
+                                        # Json : JavaScript Objec Notation
     if from_telegram.get('message') is not None:
         chat_id = from_telegram.get('message').get('from').get('id')
         text = from_telegram.get('message').get('text')
