@@ -42,7 +42,7 @@ def telegram():
             }
             data = {'source': 'en', 'target': 'ko', 'text': text[4:]}
             papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
-            text = papago_res.json().get('message').get('result').get('translatedText')     #여기에 한/영 번역 텍스트가 있다.
+            text = papago_res.json().get('message').get('result').get('translatedText')    
             
         elif text[0:4] == '/한스 ':
             headers = {
@@ -51,7 +51,7 @@ def telegram():
             }
             data = {'source': 'ko', 'target': 'es', 'text': text[4:]}
             papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
-            text = papago_res.json().get('message').get('result').get('translatedText')     #여기에 한/영 번역 텍스트가 있다.
+            text = papago_res.json().get('message').get('result').get('translatedText')     
 
         elif text[0:4] == '/스한 ':
             headers = {
@@ -60,7 +60,27 @@ def telegram():
             }
             data = {'source': 'es', 'target': 'ko', 'text': text[4:]}
             papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
-            text = papago_res.json().get('message').get('result').get('translatedText')     #여기에 한/영 번역 텍스트가 있다.
+            text = papago_res.json().get('message').get('result').get('translatedText')    
+
+        elif text[0:4] == '/한베 ':
+            headers = {
+                'X-Naver-Client-Id' : naver_client_id,
+                'X-Naver-Client-Secret' : naver_client_secret
+            }
+            data = {'source': 'ko', 'target': 'vi', 'text': text[4:]}
+            papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
+            text = papago_res.json().get('message').get('result').get('translatedText')    
+
+        elif text[0:4] == '/베한 ':
+            headers = {
+                'X-Naver-Client-Id' : naver_client_id,
+                'X-Naver-Client-Secret' : naver_client_secret
+            }
+            data = {'source': 'vi', 'target': 'ko', 'text': text[4:]}
+            papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
+            text = papago_res.json().get('message').get('result').get('translatedText')    
+
+
 
         # 로또 당첨번호 봇
         if text[0:4] == '/로또 ':
