@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="#">
+    <label for="test">TEXT</label>
+    <input type="text" id="text" placeholder="내용을 입력해주세요."><br>
+    <label for="number">NUMBER</label>  <!-- NUMBER라는 글자를 눌러도 입력창이 활성화 되도록 (선택사항)-->
+    <input type="number" id="number"><br>
+    PASSWORD: <input type="password"><br>
+    EMAIL: <input type="email"><br>
+    DATE: <input type="date"><br>
+    <input type="radio" name="language" id="" value="1">HTML<br>
+    <input type="radio" name="language" id="" value="2">CSS<br>
+    <input type="radio" name="language" id="" value="3">JS<br>  <!-- 여러개 중 하나만 선택되게 하는 방법 -->
+    <select name="country"> <!-- key, value / 딕셔너리 형식 / 키 값을 선택하고 제출하면 키에 맞는 값(데이터)이 전송됨 -->
+      <option value="1">한국</option>
+      <option value="2">중국</option>
+      <option value="3">미국</option>
+    </select>
+    <input type="checkbox" name="option" value="1">
+    <input type="checkbox" name="option" value="2">
+    
+    
+    <input type="submit">
+  </form>
+</body>
+</html>

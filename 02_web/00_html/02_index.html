@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Heading -->
+  <h1>H1, h1!</h1>  <!-- h1은 한 페이지에 하나만 쓰는게 원칙 (남발 X) -->
+  <h2>Hi, h2!</h2>
+  <h3>Hi, h3!</h3>
+  <h4>Hi, h4!</h4>
+  <h5>Hi, h5!</h5>
+  <h6>Hi, h6!</h6>
+
+  <!-- bold -->
+  <div>
+    <b>This is bold.</b>
+    <strong>This is strong.(sementic)</strong> <!-- 동작은 동일하지만 강조한다는 의미도 포함. (ex. 시각장애인용 음성을 말할 때) -->
+  </div>
+
+  <!-- italic -->
+  <div>
+    <i>This is italic.</i>
+    <em>This is em.(sementic)</em> <!-- 강조하는 의미 포함 -->
+  </div>
+
+  <!-- hightlighted -->
+  <h2>This is <mark>Mark</mark></h2>
+
+  <!-- del / ins -->
+  <h2>This is <del>del</del></h2> <!-- 가운데 줄 그어서 취소 표시 -->
+  <h2>This is <ins>ins</ins></h2> <!-- 밑줄 -->
+
+  <!-- sub / sup -->
+  <h2>This is <sub>sub</sub></h2> <!-- 지수 -->
+  <h2>This is <sup>sup</sup></h2> <!-- 제곱 -->
+
+  <!-- p / br -->
+  <p> <!-- 줄이 바뀌지 않는다. -->
+    This is p tag.<br> <!-- breaking 줄을 바꾼다. -->
+    This is p tag.<br> 
+    This is p tag.<br> 
+    This is p tag.<br> 
+    This is p tag.
+    this is p tag
+  </p>
+
+  <pre>
+    from flask import flask
+    app = Fask(__name__)
+
+    @app.route('/')
+    def hello('/'):
+      return 'Hello World'
+  </pre>
+
+  <!-- headline -->
+  <hr>
+
+  <!-- q / blockquote -->
+  <p>
+    Juya, said <q>Hi, there!</q>
+  </p>
+  <blockquote> <!-- 인용문, 격언 쓸 때 사용 -->
+    Hi, There!!!
+  </blockquote>
+
+  <!-- ol / ul / li -->
+  <ol> <!-- order list -->
+    <li>first</li>  <!-- ol의 자식 태그-->
+    <li>second</li>
+    <li>third</li>
+  </ol>
+  <ul> <!-- unorder list -->
+    <li>first</li>  <!-- ul의 자식 태그-->
+    <li>second</li>
+    <li>third</li>
+  </ul>
+
+
+
+</body>
+</html>
