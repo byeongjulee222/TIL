@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="02_selector.css">
+</head>
+<body>
+  <!-- 
+    선택자 우선순위 : !important(0순위) > 인라인 스타일 > ID 선택자 > 클래스 선택자
+     > 태그 선택자 > 전체 선택자 
+    -->
+  <p>빨간색</p>
+  <h1>태그 선택자</h1>
+  <h2 class="pink">클래스 선택자</h2>
+  <h3 id="green">ID 선택자</h3>
+  <!-- id는 겹치지 않게 사용하는 것이 원칙 -->
+  <h3 id="purple" class="pink">ID > 클래스</h3>
+  <h1 class="pink">클래스 > 태그</h1>
+
+  <!-- 
+    span 태그와 div 태그는 모두 의미는 없지만 '마크업'을 해야 css를 적용시킬 수 있기
+    때문에 활용된다. 특정한 곳을 지정해야 하고, 따라서 선택자가 필요하게 되고 선택자를
+    잡기 위해서는 마크업이 필요한 것이다.
+ -->
+  <p><span class="pink">핑크핑크</span>, <span id="yellow">노랑노랑</span></p>
+
+  <!--
+    여러 클래스를 공백으로 구분
+    (같은 선택자일 때 색깔 우선순위)
+    아래처럼 pink가 마지막에 써졌지만, css 코드상으로 yellow가 마지막에 선언되었기 때문에
+    노란색으로 적용된다.
+  -->
+  <p class="bold yellow pink">나는 무슨색일까</p>
+
+  <p class="bold yellow pink" id="orange" style="color: purple">가장 강한 우선순위</p>
+</body>
+</html>

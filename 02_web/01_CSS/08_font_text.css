@@ -1,0 +1,60 @@
+.font-1 {
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+
+.font-2 {
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: lighter;
+}
+
+.font-3 {
+  font-size: 130%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.font-4 {
+  font-size: small;
+  font-weight: 700;
+}
+
+.font-5 {
+  /* font shorthand(폰트 단축어) */
+  /* font: font-style, font-weigt, line-height, font-size(필수), font-family(필수) */
+  font: italic 2rem "Hack";
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  color: white;
+}
+
+.box > p {
+  text-align: center;
+  /* 부모의 높이만큼 값을 부여하면 수직방향으로 가운데에 위치한다. */
+  /* 
+  line-height를 부모의 height만큼 주면 텍스트를 수직 중앙정렬
+  하기에 용이하다. (단, 텍스트가 한 줄인 경우에만 적용)
+  */
+  line-height: 100px;
+}
+
+/* 폰트 : 구글 폰트 */
+/* 무조건 헤드 안에 넣어서 사용 */
+.web-font {
+  font-size: 100px;
+  font-family: 'Dokdo', cursive;
+}
+
+
+
+
+
+body {
+  height: 5000px;
+}

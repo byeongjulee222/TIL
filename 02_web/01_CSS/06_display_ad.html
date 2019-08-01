@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="06_display_ad.css">
+</head>
+
+<body>
+  <!-- block -->
+  <div>block</div>
+  <div>block</div>
+
+
+  <!-- 
+    inline
+    내용없이 존재할 수 없음
+    (width, height 적용 X)
+  -->
+  <div class="inline">안녕하세요?</div>
+  <div class="inline">저는 내용영역이 필요해요!</div>
+
+  <!-- 
+    inline-block
+    block 속성(width, height)
+    + inline 속성(우측 margin이 사라짐)
+   -->
+  <div class="inline-block">inline-blk</div>
+  <div class="inline-block">inline-blk</div>
+
+   <!-- 
+     display: None; 공간조차 사라짐 (아래쪽의 박스가 올라옴)
+     visibility: hidden; 공간은 유지, 보이지 않음.
+    -->
+  <div>1</div>
+  <div class="None">None</div>
+  <div class="hidden">hidden</div>
+  <div>4</div>
+
+  <!-- opacity, 요소의 투명도 조절, 0 ~ 1의 범위를 가짐 --> 
+  <div class="opacity">div</div>
+
+</body>
+
+</html>
