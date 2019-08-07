@@ -1,0 +1,17 @@
+/* box.css */
+
+#purple {
+  background-color: purple;
+  /* 초록 사각형의 우측 하단 모서리에 보라 사각형 좌측 상단 모서리 맞대기 */
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+#orange {
+  background-color: orange;
+  /* 파란 사각형 오른쪽 위 모서리에 오렌지 사각형 좌측 하단 모서리 맞대기 */
+  position: absolute;
+  top: -100px;
+  left: 100px;
+}
