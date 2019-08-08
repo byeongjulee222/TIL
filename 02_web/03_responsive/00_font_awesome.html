@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/53cbf8e523.js"></script>
+  <link rel="stylesheet" href="00_font_awesome.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  </head>
+  <style>
+    .square {
+      width: 100px;
+      height: 100px;
+    }
+
+    .square-animate:hover {
+      background-color: crimson !important;
+      opacity: 0.7;
+      animation: tada 2s infinite;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <i class="fas fa-camera"></i> <!-- this icon's 1) style prefix == fas and 2) icon name == camera -->
+  <span style="font-size: 3em; color: crimson;">
+    <i class="fas fa-camera faa-pulse animated"></i>
+  </span>
+  <i class="fas fa-arrow-alt-circle-up fa-10x faa-falling animated"></i>
+  <!-- hover: 마우스를 올렸을 때 동작하도록 -->
+  <i class="fas fa-balance-scale fa-lg faa-ring animated-hover"></i>
+  <!-- d-inline-block : inline 속성을 가지도록 -->
+  <div class="square bg-warning d-inline-block animated infinite zoomInRight delay-2s faster"></div>
+  <div class="square square-animate bg-danger d-inline-block"></div>
+  <div class="fa-4x">
+      <i class="fas fa-pencil-alt" data-fa-transform="shrink-10 up-.5" data-fa-mask="fas fa-comment" style="background:MistyRose"></i>
+      <i class="fab fa-facebook-f" data-fa-transform="shrink-3.5 down-1.6 right-1.25" data-fa-mask="fas fa-circle" style="background:MistyRose"></i>
+      <i class="fas fa-headphones animated infinite fadeOutDown" data-fa-transform="shrink-6" data-fa-mask="fas fa-square" style="background:MistyRose"></i>
+      <i class="fas fa-mask animated infinite fadeInDown" data-fa-transform="shrink-3 up-1" data-fa-mask="fas fa-circle" style="background:MistyRose"></i>
+    </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

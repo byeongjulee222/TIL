@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -32,55 +32,53 @@
       </ul>
     </div>
   </nav>
-  <form>
-    <div class="container">
-      <div class="form-group font-weight-bold">
+  <div class="container mt-3">
+    <form>
+      <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
-      <div class="form-group font-weight-bold">
+      <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
       </div>
-      <div class="form-group font-weight-bold">
+      <div class="form-group">
         <label for="exampleInputPassword1">Password Confirmation</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password Confirmation">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-
-      <div class="container">
-        <div class="row">
-          <div class="card col-4" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">바다</h5>
-              <p class="card-text">바다는 파란색이다.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card col-4" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">바다</h5>
-              <p class="card-text">바다는 파란색이다.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card col-4" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">바다</h5>
-              <p class="card-text">바다는 파란색이다.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+    </form>
+    <!-- 카드 3개를 row 안에 넣는다. -->
+    <div class="row mt-3">
+      <div class="card col-4" style="width: 18rem;">
+        <!-- lorempixel 삽입 -->
+        <img src="http://lorempixel.com/400/200/animals" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">동물</h5>
+          <p class="card-text">동물 사진입니다.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-4" style="width: 18rem;">
+        <img src="http://lorempixel.com/400/200/technics" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">기술</h5>
+          <p class="card-text">전자기기 사진입니다.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card col-4" style="width: 18rem;">
+        <img src="http://lorempixel.com/400/200/sports" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">스포츠</h5>
+          <p class="card-text">스포츠 사진입니다.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
-  </form>
-
+  </div>
 
 
 
@@ -95,3 +93,5 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
 </body>
+
+</html>
