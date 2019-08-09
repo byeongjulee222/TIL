@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  /* 창 크기에 대한 비율로 높이를 정함 */
+  height: 100vh;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  height: 100px;
+  background-color: darkgray;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items {
+  display: flex;
+}
+
+.items > li {
+  list-style-type: none;
+  margin: 0 20px;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+}
+
+aside {
+  width: 300px;
+  height: 100%;
+  background-color: bisque
+}
+
+section {
+  display: flex;
+  background-color: skyblue;
+  height: 100%;
+  /* 나머지 부분을 모두 section에게 할당 */
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.article {
+  background-color: darkcyan;
+  border: 1px solid black;
+  /* border와 text 사이 간격 조절 */
+  padding: 30px 10px;
+}
+
+
+footer {
+  background-color: darksalmon;
+  width: 100%;
+  height: 100px;
+  /* 아래에 있는 요소들을 위로 올리겠다는 뜻 */
+  /* block에서는 margin-top 불가능 (block에서는 아래쪽에 요소가 없음. */
+  margin-top: auto;
+}
