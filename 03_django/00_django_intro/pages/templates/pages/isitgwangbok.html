@@ -1,0 +1,8 @@
+{% comment %} {{ datetimenow }} {% endcomment %}
+{% extends 'base.html' %}
+{% block content %}
+{% if result == True  %}
+<p>광복절</p>
+{% endif %}
+<p>아님 {{ today|date:"m월 d일" }}임</p>
+{% endblock %}

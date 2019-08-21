@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+<h3>1. 반복문</h3>
+{% for menu in menus %}
+<p>{{ menu }}</p>
+{% endfor %}
+
+<hr>
+<hr>
+{% comment %}
+for문 돌리는 방법
+{% endcomment %}
+{% for menu in menus %}
+<p>{{ forloop.counter }}{{ menu }}</p>
+{% endfor %}
+
+<hr>
+<hr>
+{% for user in empty_list %}
+<p>{{ user }}</p>
+{% empty %}
+<p>현재 가입된 유저가 없습니다.</p>
+{% endfor %}
+<hr>
+<hr>
+
+<h3>2. 조건문</h3>
+{% if '짜장면' in menus %}
+<p>짜장면에는 고춧가루지!</p>
+{% else %}
+<p>없지롱</p>
+{% endif %}
+<hr>
+<hr>
+
+{% for menu in menus %}
+{{ forloop.counter }}번째 도는중...
+{% if forloop.first %}
+<p>짜장면 + 고춧가루</p>
+{% else %}
+<p>{{ menu }}</p>
+{% endif %}
+{% endfor %}
+<hr>
+<hr>
+
+{% comment %}
+<=,>=, ==, !=, >, <, 등 모두 사용 가능 {% endcomment %} <h3>3. length filter</h3>
+{% for message in messages %}
+{% if message|length > 5 %}
+<p>{{ message }}, 글자가 너무 길어요.</p>
+{% else %}
+<p>{{ message }}, {{ message|length }}</p>
+{% endif %}
+{% endfor %}
+<hr>
+<hr>
+
+<h3>4. lorem ipsum</h3>
+{% comment %} 원래 내장되어 있는 변수는 % %로 감싸준다. {% endcomment %}
+{% lorem %}
+<hr>
+{% comment %} 길이 조절 {% endcomment %}
+{% lorem 3 w %}
+<hr>
+{% comment %} 랜덤 범위 데이터(random) {% endcomment %}
+{% lorem 4 w random %}
+<hr>
+{% comment %} 문단 단위(paragraph) {% endcomment %}
+{% lorem 2 p %}
+<hr>
+<hr>
+
+<h3>5. 글자수 제한</h3>
+<p>{{ my_sentence|truncatewords:3 }}</p>
+{% comment %} ... 자체도 한 글자로 인식 {% endcomment %}
+<p>{{ my_sentence|truncatechars:3 }}</p>
+<hr>
+<hr>
+
+<h3>6. 글자관련 필터</h3>
+<p>{{ 'abc'|length }}</p>
+<p>{{ 'ABC'|lower }}</p>
+<p>{{ my_sentence|title }}</p>
+<p>{{ 'abc def'|capfirst }}</p>
+<p>{{ menus|random }}</p>
+<hr>
+<hr>
+
+{% comment %}
+더 많은 연산관련 기능은 django-mathfilters 라이브러리가 필요
+{% endcomment %}
+<h3>7. 연산</h3>
+<p>{{ 4|add:6 }}</p>
+<hr>
+<hr>
+
+<h3>8. 날짜표현</h3>
+<p>{{ datetimenow }}</p>
+<p>{% now "DATETIME_FORMAT" %}</p>
+<p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+<p>{% now "SHORT_DATE_FORMAT" %}</p>
+<hr>
+<hr>
+{% now "Y년 m월 d일 (D) h:i" %}
+<hr>
+{% comment %} 변수 변경 {% endcomment %}
+{% now "Y" as current_year %}
+Copyright {{ current_year }}
+<hr>
+{{ datetimenow|date:"DATETIME_FORMAT" }}
+<hr>
+<hr>
+
+<h3>9. 기타</h3>
+<p>{{ 'google.com'|urlize }}</p>
+{% block content %}
+{% endblock %} 

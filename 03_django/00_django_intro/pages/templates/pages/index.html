@@ -7,6 +7,10 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>hi</h1>
+  {% comment %} extends는 반드시 최상단에 위치해야 한다. {% endcomment %}
+  {% extends 'base.html' %} 
+  {% block content %}
+    <h1>hi(pages)</h1>
+  {% endblock %}
 </body>
 </html>
