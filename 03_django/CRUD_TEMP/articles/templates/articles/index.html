@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+  <h1 class="text-center">Articles</h1>
+  <a href="{% url 'articles:create' %}">[NEW]</a>
+  <hr>
+  {% comment %} for문 돌려서 해당하는 값들을 차례로 출력 {% endcomment %}
+  {% for article in articles %}
+    <p>글 번호 : {{ article.pk }}</p>
+    <p>글 제목 : {{ article.title }}</p>
+    <p>글 내용 : {{ article.content }}</p>
+    <a href="{{ article.get_absolute_url }}">[DETAIL]</a>
+    {% comment %} 똑같이 동작
+    <a href="/articles/{{ article.pk }}">[DETAIL]</a>
+    번호에 해당하는 글에 들어가는 버튼 작성 {% endcomment %}
+    <a href="{% url 'articles:detail' article.pk%}">[DETAIL]</a>
+    <hr>
+  {% endfor %}
+{% endblock  %}

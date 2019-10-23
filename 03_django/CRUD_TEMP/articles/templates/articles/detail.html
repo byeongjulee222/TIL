@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">DETAIL</h1>
+<h2>{{ article.pk }} 번째 글</h2>
+<hr>
+<p>제목 : {{ article.title }}</p>
+<p>내용 : {{ article.content }}</p>
+<p>작성 시간 : {{ article.created_at }}</p>
+<p>수정 시간 : {{ article.updated_at }}</p>
+<hr>
+<!-- 댓글 출력 -->
+<p><b>{{ comments|length }}개의 댓글</b></p>
+<!-- count 메서드가 호출되면서 comment 모델 쿼리를 한번 더 db에 보내기 때문에 속도가 더 느리다. -->
+<p><b>{{ comments.count }}개의 댓글</b></p>
+<!-- comments가 안넘어올 때 사용 가능 -->
+<p><b>{{ article.comment_set.all|length }}개의 댓글</b></p>
+<p> 댓글 목록
+  {% for cmm in comments %}
+  <li>{{ cmm.content }}
+    <form action="{% url 'articles:comments_delete' article.pk cmm.pk %}" method="POST" style="display: inline;">
+      {% csrf_token %}
+      <input type="submit" value="del">
+    </form>
+  </li>
+  {% empty %}
+  <p><b>댓글이 없습니다.</b></p>
+  {% endfor %}
+</p>
+<hr>
+<!--
+{% for choice in choices %}
+  <h3>{{ choice.content }}</h3>
+  <h3>{{ choice.votes }}</h3>
+{% endfor %}
+-->
+<!-- 댓글 작성 form -->
+<form action="{% url 'articles:comments_create' article.pk %}" method="POST">
+  <form action="{% url 'articles:delete' article.pk %}" method="POST" onclick="return confirm('진짜 지울거야?')">
+    {% csrf_token %}
+    <label for="content">COMMENT</label>
+    <input type="text" name="content" id="content">
+    <input type="submit" value="submit">
+  </form>
+  <hr>
+  <a href="{% url 'articles:update' article.pk %}">[UPDATE]</a>
+  <input type="submit" value="DELETE">
+</form>
+
+<a href="{% url 'articles:index' %}">[BACK]</a>
+{% endblock  %}
