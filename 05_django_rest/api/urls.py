@@ -1,4 +1,4 @@
-"""myform URL Configuration
+"""api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -17,9 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    # accounts가 겹치면 우리가 구현한 accounts를 위에 위치하도록
-    path('accounts/', include('accounts.urls')),
-    path('accounts/', include('allauth.urls')),
-    path('articles/', include('articles.urls')),
+    path('api/v1/', include('musics.urls')),
     path('admin/', admin.site.urls),
 ]
