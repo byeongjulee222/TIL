@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- v-bind 생략 가능 -->
+    <img v-bind:src="vueImage" alt="todo-list">
+    <!-- false인 항목(시행하지 않은)만 출력-->
+    <!-- 동일한 node에서는 v-for가 v-if보다 높은 우선순위를 가짐
+        즉, v-if는 루프가 반복될 때마다 실행! (일부 항목만 렌더링할 때 유용) -->
+        <!-- v-on:click = 클릭할 때 동작 -->
+    <li v-for="todo in todos" v-if="!todo.completed" v-on:click="check(todo)">
+      {{ todo.content }}
+    </li>
+    <!-- v-else-if 도 존재한다 -->
+    <!-- v-else는 반드시 v-if 엘리먼트 바로 뒤에 와야 인식 가능 -->
+    <li v-else v-on:click="check(todo)">[완료!]</li>
+    <!-- <li v-else>[완료!]</li> -->
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        todos: [
+          {
+            content: '점심 메뉴 고민',
+            completed: true,
+          },
+          {
+            content: '사다리 타기',
+            completed: false,
+          },
+          {
+            content: '낮잠 자기',
+            completed: true,
+          },
+          {
+            content: '야자하기',
+            completed: false,
+          },     
+        ],
+        vueImage: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      },
+      methods: {
+        check: function(todo1) {
+          todo1.completed = !todo1.completed
+        }
+      }
+    })
+  
+  </script>
+
+
+</body>
+</html>

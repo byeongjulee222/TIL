@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="getDogImage">DOG</button>
+    <button v-on:click="getCatImage">CAT</button>
+    <img v-for="image in images" v-bind:src="image" alt="img">
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const dog = function () {
+      const URL = 'https://dog.ceo/api/breeds/image/random'
+      axios.get(URL)
+        .then(response => {
+          // 같은 인스턴스 안에 있는 data 내의 속성 값은 this 키워드를 통해서 접근
+          this.images.push(response.data.message)
+          console.log(images)
+        })
+    }
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        images: [], // 요청 받은 데이터를 넣어야하기 때문에 빈 문자열로 둠.
+      },
+      methods: {
+        getDogImage: dog,
+        getCatImage: function () {
+          const URL = 'https://api.thecatapi.com/v1/images/search'
+          axios.get(URL)
+            .then(response => {
+              // 같은 인스턴스 안에 있는 data 내의 속성 값은 this 키워드를 통해서 접근
+              this.images.push(response.data[0].url)
+            })
+        }
+      }
+    })
+
+    // const getCatImage = function () {
+    //   axios.get('https://api.thecatapi.com/v1/images/search')
+    //     .then(response => {
+    //       console.log(response)
+    //       const imgUrl = response.data[0].url
+    //       const imgTag = document.createElement('img')
+    //       imgTag.src = imgUrl2
+    //       document.querySelector('.animals').append(imgTag)
+    //     })
+    //     .catch(error => console.log(error))
+    // }
+
+    // const catButton = document.querySelector('#newCat')
+    // catButton.addEventListener('click', function () {
+    //   getCatImage()
+    // })
+  </script>
+</body>
+
+</html>
