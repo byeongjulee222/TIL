@@ -1,0 +1,117 @@
+<!-- 컴포넌트
+"소프트웨어 개발에서 독립적인 단위 모듈"
+대체로 컴포넌트는 특정 기능이나 관련된 기능의 조합으로 구성되는데,
+프로그래밍 설계에서 시스템은 모듈로 구성된 컴포넌트로 나뉜다.
+Vue - "기본 HTML 엘리먼트를 확장하여 재사용 가능한 코드로 캡슐화 하는 것"
+
+컴포넌트 naming convention
+ - 컴포넌트의 첫번째 인자는 태그 이름, 두번째 인자는 속성들을 넣어준다.
+1. kebab-case ('todo-list')
+  호출할 때 : <todo-list></todo-list> / 케밥케이스 태그로만 호출 가능
+2. pascal-case ('TodoList')
+  호출할 때 : <todo-list></todo-list> or <TodoList>(닫는 태그 없음) -> 둘 다 호출 가능.
+    단, DOM에 직접 작성할 때는 케밥케이스만 가능
+  
+  그래서 vue는 모두 소문자여야하고, 하이픈을 포함하는 규칙을 따르는 것을 권장한다.  
+
+props
+  컴포넌트를 재생산할 때 컴포넌트에서 사용할 변수를 부모에서 내려주게 되는데 이를 props라고 한다.
+  반복되는 컴포넌트에 서로 다른 정보가 들어가야할 때 사용
+  하위(자식)에서 상위(부모) 데이터를 직접 참조해선 안되고 실제로도 안된다.
+  props 옵션을 통해 부모 -> 자식으로 데이터 전달
+  전달하려고 하는 데이터의 이름을 태그내의 속성으로, 내용을 속성값으로 넣어준다.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .todo-list {
+      display: inline-block;
+      width: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>My Todo App</h1>
+    <todo-list category="취업특강"></todo-list>
+    <todo-list category="SSAFY"></todo-list>
+    <todo-list category="기타"></todo-list>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var data = {
+      counter: 0
+    }
+    // 컴포넌트 등록
+    Vue.component('todo-list', {
+      template: `
+          <div class="todo-list">
+            <h2>{{ category }}</h2>
+            <input type="text" v-model="newTodo">
+            <button v-on:click="addTodo">+</button>
+            <li v-for="todo in todos" v-bind:key="todo.id">
+              <span>{{ todo.content }}</span>
+              <button v-on:click="removeTodo(todo.id)">x</button>
+            </li>
+          </div>`,
+      props: {
+        category: {
+          type: String,
+          required: true,
+          // 입력은 되지만 콘솔에 에러를 출력
+          validator: function (value) {
+            if (value.length < 5) {
+              return true
+            } else {
+              return false
+            }
+          }
+          // default 도 설정가능
+        }
+      },
+      data: function () {
+        // 컴포넌트에서 data는 함수여야 한다.(그렇지 않으면 데이터가 하나로 통합됨)
+        // 이제 모든 todos와 newTodo 는 각각 고유한 내부 상태를 가지고 있다.
+        return {
+          todos: [],
+          newTodo: '',
+        }
+      },
+      methods: {
+        addTodo: function () {
+          if (this.newTodo.length != 0) {
+            this.todos.push({
+              id: Date.now(),
+              content: this.newTodo,
+              completed: false,
+            })
+            this.newTodo = ''
+          }
+        },
+        removeTodo: function (todoId) {
+          // 완료한 todo
+          // 완료된 todo를 제외한 나머지 todo만 filter를 통해서
+          // 새로운 배열로 return
+          this.todos = this.todos.filter(todo => {
+            return todo.id != todoId
+          })
+        },
+      },
+    })
+    const app = new Vue({
+      el: '#app',
+    })
+  </script>
+
+</body>
+
+</html>

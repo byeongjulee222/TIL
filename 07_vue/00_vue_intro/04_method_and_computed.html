@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="visible = !visible">TOGGLE</button>
+    <ul v-if="visible">
+      <!-- method로 출력 -->
+      <!-- TOGGLE 클릭할 때마다 값이 변한다 -->
+      <li>Method : {{ dateMethod() }}</li>
+      <!-- computed로 출력 -->
+      <!-- Date.now() : 아무 곳에도 의존하지 않는 computed 속성 -->
+      <!-- 값이 고정되어 있음(캐싱되어있다) -->
+      <li>Computed : {{ dateComputed }}</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        visible: true,
+      },
+      methods: {
+        dateMethod: function() {
+          return new Date()
+        }
+      },
+      computed: {
+        dateComputed: function() {
+          return new Date()
+        }
+      },
+    })
+  </script>
+</body>
+</html>

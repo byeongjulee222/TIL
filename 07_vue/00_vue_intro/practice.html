@@ -5,28 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
 </head>
 <body>
+
   <div id="app">
-    <li v-for="number in numbers" v-if="number%2==0">{{number}}</li>
-    <ul v-for="number in numbers" v-if="number%2==0">{{number}}</ul>
-    <ol type="a" start="677">
-    <li v-for="number in numbers" v-if="number%2==0">{{number}}</li>
-  </ol>
+    <button @click="toggleColor">Toggle</button>
+    <div :class="red ? 'red' : 'blue'">
+      빨강과 파랑을 섞으면 보라색이 됩니다.
+    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        red: true,
+      },
+      methods: {
+        toggleColor: function () {
+          this.red = !this.red
+        }
+      }
+    })
+  
+  </script>
+
+
+
+  <!-- <div id="static">
+    <button @click="changeColor">Toggle</button>
+    <h1 :style="{ color: activeColor }">빨강과 파랑을 섞으면 보라색이 됩니다.</h1>
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
   var app = new Vue({
-    el: '#app',
+    el: '#static',
     data: {
-      numbers: [0,1,2,3,4,5,6,7,8,9],
+      activeColor: '',
     },
-  })
+    methods: {
+      changeColor: function() {
+        if (this.activeColor === 'red') {
+          this.activeColor = 'blue'
+        }
+        else {
+          this.activeColor = 'red'
+        }
+      }
+    }
+   }) -->
 
 
-  </script>
+  <!-- </script> -->
 </body>
 </html>
