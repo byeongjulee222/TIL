@@ -7,7 +7,7 @@
       :video="video"
       @videoSelect="onVideoSelect"
       >
-      </video-list-item>
+    </video-list-item>
   </ul>
 </template>
 

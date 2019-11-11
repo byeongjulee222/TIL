@@ -43,24 +43,24 @@
       },
       //  inputValue : $emit에서 온 e.target.value
       onInputChange(inputValue) {
-      //  받은 데이터 뜨는지 콘솔창에서 확인
-      //  console.log(inputValue)
-      axios.get(API_URL, {
-        params: {
-          key: API_KEY,
-          type: 'video',
-          part: 'snippet',
-          // url에서 검색어 앞에 붙는거(?q='검색어')
-          q: inputValue,
-        }
-      })
-      // 함수내의 함수이기 때문에 반드시 Arrow Function 사용
-      .then(response => {
-        // 콘솔에서 확인하고 작성
-        this.videos = response.data.items
-      })
-      .catch(error => {
-        console.log(error)
+        //  받은 데이터 뜨는지 콘솔창에서 확인
+        //  console.log(inputValue)
+        axios.get(API_URL, {
+          params: {
+            key: API_KEY,
+            type: 'video',
+            part: 'snippet',
+            // url에서 검색어 앞에 붙는거(?q='검색어')
+            q: inputValue,
+          }
+        })
+        // 함수내의 함수이기 때문에 반드시 Arrow Function 사용
+        .then(response => {
+          // 콘솔에서 확인하고 작성
+          this.videos = response.data.items
+        })
+        .catch(error => {
+          console.log(error)
         })
       }
     },
