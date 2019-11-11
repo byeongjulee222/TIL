@@ -20,6 +20,7 @@
     },
     methods: {
       onVideoSelect(video) {
+        // 'videoSelect'라는 이름으로 'video' 변수를 보냄
         this.$emit('videoSelect', video)
       }
     },
