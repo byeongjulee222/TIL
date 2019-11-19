@@ -41,6 +41,7 @@
 
 <script>
   import axios from 'axios'
+  import router from '../router'
 
   export default {
     name: 'LoginForm',
@@ -59,11 +60,37 @@
       login() {
         if (this.checkForm()) {
           this.loading = true
-          axios.get('http://127.0.0.1:8000', this.credentials)
+          // 1. django jwt를 생성하는 주소로 요청을 보냄
+          // 이 때, post 요청으로 보내야하며 사용자가 입력한 로그인 정보(credentials)를 같이 넘겨야 함.
+          axios.post('http://127.0.0.1:8000/api-token-auth/', this.credentials)
           .then(res => {
-            console.log(res)
+            // https://www.npmjs.com/package/vue-session
+
+            // this.$session.start()
+            // --> settion-id 초기화. 만약 세션이 없이 저장하려고 하면 
+            // vue-session 플러그인이 자동으로 새로운 세션을 시작
+
+            // this.$session.set(key,value)
+            // --> session에 해당 key에 맞는 값을 저장
+
+            // this.$session.has(key)
+            // --> key(JWT)가 존재하는지 여부를 확인
+
+            // this.$session.destroy()
+            // --> session을 삭제
+
+            this.$session.start()
+            this.$session.set('jwt', res.data.token)
+            
+            // main.js에서 home 위치 확인
+            router.push('/')
+            // 2. 로그인 이후에 loading의 상태를 다시 false로 변경
+            // 그래야 spinner가 계속 돌지않고 로그인 form을 받아볼 수 있음.
+            this.loading = false
           })
           .catch(err =>{
+            // 2. 로그인 실패 시, loading의 상태를 다시 false로 변경
+            this.loading = false
             console.log(err)
           })
         }

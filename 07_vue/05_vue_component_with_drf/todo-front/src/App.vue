@@ -6,8 +6,8 @@
       <router-link to="/login">Login</router-link>
     </div>
     <!-- 라우터 뷰로 보여준다 -->
-    <div class="container col-6">
-      <router-view/>
+    <div class="row justify-content-center">
+      <router-view class="col-6"/>
     </div>
   </div>
 </template>
