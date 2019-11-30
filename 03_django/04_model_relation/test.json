@@ -1,0 +1,17 @@
+[
+{
+  "model": "manytomany.doctor",
+  "pk": 1,
+  "fields": {
+    "name": "justin"
+  }
+},
+{
+  "model": "manytomany.patient",
+  "pk": 1,
+  "fields": {
+    "name": "tak",
+    "doctors": []
+  }
+}
+]
